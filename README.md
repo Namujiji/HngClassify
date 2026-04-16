@@ -105,19 +105,28 @@ Response (example):
 
 ```json
 {
-  "name": "alex",
-  "gender": "male",
-  "probability": 0.98,
-  "count": 12345
+  "status": "success",
+  "data": {
+    "name": "mark",
+    "gender": "male",
+    "probability": 1,
+    "sampleSize": 1378167,
+    "isConfident": true,
+    "processedAt": "2026-04-16T10:08:32.8926875Z"
+  }
 }
 ```
 
 Fields:
 
-- `name` — the queried name
-- `gender` — predicted gender (`male`, `female`, or `null`)
-- `probability` — confidence score (0..1)
-- `count` — number of records used to infer the gender (when provided by Genderize)
+- `status` — request status (`success` or `error`)
+- `data` — response payload object
+  - `name` — the queried name
+  - `gender` — predicted gender (`male`, `female`, or `null`)
+  - `probability` — confidence score (0..1)
+  - `sampleSize` — number of records used to infer the gender
+  - `isConfident` — whether the prediction is considered reliable
+  - `processedAt` — ISO timestamp indicating when the request was processed
 
 ## Examples
 

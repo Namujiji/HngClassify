@@ -48,6 +48,7 @@ public static class ApiServicesRegistration
         services.AddControllers()
                 .ConfigureApiBehaviorOptions(options =>
                 {
+                    options.SuppressModelStateInvalidFilter = true;
                     options.InvalidModelStateResponseFactory = context =>
                     {
                         var firstError = context.ModelState.Values
